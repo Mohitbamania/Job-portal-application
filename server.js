@@ -28,7 +28,7 @@ const option = {
     },
     servers:[
         {
-            url:"https://nodejs-job-portal-application-1.onrender.com/"
+            url:"https://nodejs-job-portal-application-1.onrender.com/api-doc"
         }
     ]
     },
