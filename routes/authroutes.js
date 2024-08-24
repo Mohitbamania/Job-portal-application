@@ -17,9 +17,9 @@ const router = express.Router();
 /**
  * @swagger
  * components:
- *  Schemas:
+ *  schemas:
  *    user:
- *      type: object
+ *      type: Object
  *      required:
  *        - name
  *        - email
@@ -44,7 +44,60 @@ const router = express.Router();
  *        password: bamania@2003
  */
 
+/**
+ * @swagger
+ * tags:
+ *   name: auth
+ *   description: authentication apis
+ */
+
+/**
+ * @swagger
+ * /api/v1/auth/register:
+ *    post:
+ *      summary: register new user
+ *      tags: [Auth]
+ *      requestBody:
+ *       required: true
+ *       content:
+ *         application/json:
+ *           schema:
+ *             $ref: '#/components/schemas/user'
+ *      responses:
+ *         200:
+ *           description: user created successully
+ *           content:
+ *             application/json:
+ *               schema:
+ *                 $ref: '#/components/schemas/user'
+ *         500:
+ *           description: internal server error
+ */
+
 router.post("/register", limiter, registercontroller);
+
+/**
+ * @swagger
+ * /api/v1/auth/login:
+ *    post:
+ *      summary: 
+ *      tags: [Auth]
+ *      requestBody:
+ *       required: true
+ *       content:
+ *         application/json:
+ *           schema:
+ *             $ref: '#/components/schemas/user'
+ *      responses:
+ *         200:
+ *           description: login successully
+ *           content:
+ *             application/json:
+ *               schema:
+ *                 $ref: '#/components/schemas/user'
+ *         500:
+ *           description: internal server error
+ */
 
 router.post("/login", limiter, logincontroller);
 
